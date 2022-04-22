@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" ngModel class="form-control w-50" #user="ngModel" id="usr" name="user" required/>
+  </div>
+  <span *ngIf="!user.valid && user.touched" class="text-danger">User name is required</span>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input
+      type="password"
+      ngModel
+      class="form-control w-50"
+      id="pwd"
+      name="pwd"            
+    />
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment:</label>
+    <textarea
+      class="form-control w-50"
+      ngModel
+      rows="5"
+      id="comment"
+      name="comment"
+    ></textarea>
+  </div>
+  <div>
+    <label for="comment">Gender:</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          ngModel
+          class="form-check-input"
+          name="Gender"
+          value="male"
+        />Male
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          ngModel
+          class="form-check-input"
+          name="Gender"
+          value="female"          
+        />Female
+      </label>
+    </div>
+  </div>
+  <div class="w-50 pull-right">
+    <button type="submit" [disabled]="!f.valid" class="btn btn-sm btn-primary">Add</button>
+    <button type="button" class="btn btn-sm btn-primary ml-2">Cancel</button>
+  </div>
+</form>
